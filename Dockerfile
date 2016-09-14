@@ -22,7 +22,7 @@ RUN gem install rails --no-ri --no-rdoc \
 WORKDIR /resque-scheduler-web
 
 RUN sed -i "/Rails.application.routes.draw do/a   mount ResqueWeb::Engine => \"${BASE_URL}\"" config/routes.rb \
- && sed -i "/Rails.application.configure do/a   config.assets.prefix = \"${BASE_URL}/assets\"" config/environments/development.rb \
+ && sed -i "/Rails.application.configure do/a   config.assets.prefix = \"${BASE_URL}/assets\"" config/environments/production.rb \
  && sed -i "s/config.assets.compile = false/config.assets.compile = true/" config/environments/production.rb \
  && echo "development:\n secret_key_base:\n\ntest:\n secret_key_base:\n\nproduction:\n secret_key_base: ${HOSTNAME}" > config/secrets.yml
 
