@@ -1,7 +1,7 @@
 FROM ruby:2.3
 
 MAINTAINER  Alexandre Buisine <alexandrejabuisine@gmail.com>
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 ENV BASE_URL="/resque_web"
 
@@ -32,4 +32,9 @@ ENV RAILS_RESQUE_REDIS="redis:6379:0" RAILS_SERVE_STATIC_FILES="true"
 # RESQUE_WEB_HTTP_BASIC_AUTH_USER="user" RESQUE_WEB_HTTP_BASIC_AUTH_PASSWORD="password"
 
 EXPOSE 80
-CMD /resque-scheduler-web/bin/rails server -e production -b 0.0.0.0 -p 80
+
+COPY resources/docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/resque-scheduler-web/bin/rails", "server", "-e", "production", "-b", "0.0.0.0", "-p", "80"]
