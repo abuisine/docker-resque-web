@@ -34,11 +34,4 @@ If you need a non-default resque server, use this environment variable:
 RAILS_RESQUE_REDIS=<host>:<port>:<database>
 ```
 
-
-The container is configured to serve Resque-Web on the `/resque-web` path which allows simple reverse proxy configuration.
-
-
-You can enable verbose output by setting:
-```
-RAILS_LOG_TO_STDOUT="true"
-```
+This container is configured to serve Resque-Web on the `/resque-web` path which allows simple reverse proxy configuration.
