@@ -1,7 +1,7 @@
 FROM ruby:2.3
 
 MAINTAINER  Alexandre Buisine <alexandrejabuisine@gmail.com>
-LABEL version="2.3.0"
+LABEL version="2.2.0"
 
 ENV BASE_URL="/resque_web"
 
