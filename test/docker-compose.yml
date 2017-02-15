@@ -1,0 +1,13 @@
+version: '2'
+ 
+services:
+ redis:
+  image: redis
+  restart: always
+
+ resque-web:
+  image: abuisine/resque-web:2.2.0
+  depends_on:
+   - redis
+  ports:
+   - "80:80"
