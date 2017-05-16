@@ -1,7 +1,7 @@
 # Resque-Web and Resque-Scheduler-Web in Docker
 Installs a rails based version of `resque-web` which is compatible with Resque 2.
 This container is compatible with `resque-scheduler`.
-The container is based on `ruby:2.3` and sinatra 2.
+The container is based on `ruby:2.4` and sinatra 2.
 
 ## DISCLAIMER
 Uses Sinatra `2.0.0`.
