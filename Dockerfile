@@ -1,7 +1,7 @@
-FROM ruby:2.3
+FROM ruby:2.4
 
-MAINTAINER  Alexandre Buisine <alexandrejabuisine@gmail.com>
-LABEL version="2.2.0"
+LABEL maintainer="Alexandre Buisine <alexandrejabuisine@gmail.com>"
+LABEL version="2.4.0"
 
 ENV BASE_URL="/resque_web"
 
@@ -16,7 +16,7 @@ RUN gem install rails --no-ri --no-rdoc \
  && cd / \
  && rails new resque-scheduler-web \
  && cd resque-scheduler-web \
- && echo "gem 'sinatra', '2.0.0.beta2'" >> Gemfile \
+ && echo "gem 'sinatra'" >> Gemfile \
  && echo "gem 'resque'" >> Gemfile \
  && echo "gem 'resque-scheduler'" >> Gemfile \
  && echo "gem 'resque-web', require: 'resque_web'" >> Gemfile \

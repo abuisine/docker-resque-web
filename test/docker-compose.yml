@@ -6,7 +6,7 @@ services:
   restart: always
 
  resque-web:
-  image: abuisine/resque-web:2.2.0
+  image: abuisine/resque-web:2.4.0
   depends_on:
    - redis
   ports:
