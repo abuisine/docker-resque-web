@@ -33,3 +33,4 @@ RAILS_RESQUE_REDIS=<host>:<port>:<database>
 ```
 
 This container is configured to serve Resque-Web on the `/resque_web` path which allows simple reverse proxy configuration.
+Shoud you use https, you may have to set the `X-Forwarded-Proto` header in your reverse proxy configuration, which will make some resque-web redirects work properly.
