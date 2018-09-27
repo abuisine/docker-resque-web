@@ -26,6 +26,7 @@ RUN gem install rails --no-ri --no-rdoc \
 WORKDIR /resque-scheduler-web
 
 RUN sed -i "/Rails.application.routes.draw do/a   mount ResqueWeb::Engine => \"${BASE_URL}\"" config/routes.rb \
+ && sed -i "/Rails.application.routes.draw do/a   root :to => redirect(\"${BASE_URL}\")" config/routes.rb \
  && sed -i "/Rails.application.configure do/a   config.assets.prefix = \"${BASE_URL}/assets\"" config/environments/production.rb \
  && sed -i "s/config.assets.compile = false/config.assets.compile = true/" config/environments/production.rb \
  && sed -i "s/config.log_level = :debug/config.log_level = :warn/" config/environments/production.rb \
